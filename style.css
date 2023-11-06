@@ -1,0 +1,99 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+/*body background, from: cssgradient.io*/
+body {
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    font-size: 1.3rem;
+}
+
+/* "Income - expense management application" */
+h1 {
+    text-align: center;
+    padding: 30px 0;
+}
+
+/*title, amount, buttons, total and table*/
+#container, #all-expense-income {
+    display: flex;
+    justify-content: center;
+}
+
+
+#container > div:first-of-type, 
+#all-expense-income table{
+    background: #abc8eb;
+    border: 3px solid #4183ce;
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+/*space between label and input */
+#container .space {
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#container .space label {
+    margin-right: 5px;
+}
+
+/*buttons (+, -)*/
+button {
+    padding:0 10px;
+}
+
+/*chart*/
+#chart{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+#myChart {
+    width: 600px !important;
+    height: 390px !important;
+}
+
+/*table*/
+table {
+    margin: 10px 0;
+    border-collapse: collapse;
+}
+
+table,
+td, 
+th{
+    border: 3px solid #4183ce;
+}
+
+td, th {
+    padding: 5px
+}
+
+/*dividing line between the last income and the first expense*/
+table > .expense {
+    border-top: 5px solid black;
+}
+
+table > .expense ~ .expense {
+    border-top: none;
+}
+
+/*if error*/
+#error-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: #c62828;
+    visibility: hidden;
+    color: #FFF;
+    font-size: 18px;
+    margin: 10px 0;;
+}
+

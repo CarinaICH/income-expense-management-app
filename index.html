@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Income - expense management application</title>
+
+    <!--my css file-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!--at the top of the app: two input fields (title, amount), two buttons (+, -), amount should be a positive number-->
+    <h1>Income - expense management application</h1>
+    <div id="error-div"><p id="error-message"></p></div>
+    
+    <div id="container">
+      <div>
+        <div class="space">
+          <label for="">Item description:</label>
+          <input type="text" name="" id="titleInput" />
+        </div>
+        <br />
+        <div class="space">
+          <label for="">Amount:</label>
+          <input type="number" name="" id="sum" min="0" />
+        </div>
+        <div class="space">
+          <button type="button" onclick="controller.createNewIncome()">+</button>
+          <button type="button" onclick="controller.createNewExpense()">
+            -
+          </button>
+        </div>
+        <div>
+          <!--below the input fields there is a 'Total' paragraph that shows the difference between 'income' and 'expense' stored in Redis. This is updated every time the user presses '+' or '-'-->
+          <p>Total: <span id="total"></span></p>
+          <br />
+        </div>
+      </div>
+    </div>
+    <!--Extra: chart js: above table show chart with two bars (expense and income), this is updated every time the user presses '+' or '-'-->
+    <div id="chart">
+      <canvas id="myChart"></canvas>
+    </div>
+    <!--below 'Total' , if click on '+' or '-' show table with all expenses and incomes from MongoDB, the first row of the table: ’date’, ’title’, ’income’, ’expense’-->
+    <div id="all-expense-income"></div>
+
+    <script>
+      const controller = require("./controller.js"); 
+      const service = require("./service.js");
+
+      
+      window.onbeforeunload = function () {
+        service.disconnect();
+      };
+      
+
+    </script>
+    <!--Extra: chart js: above table show chart with two bars (expense and income), this is updated every time the user presses '+' or '-'-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </body>
+</html>
